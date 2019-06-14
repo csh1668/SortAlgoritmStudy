@@ -10,9 +10,9 @@ namespace SortAlgoritmStudy
     {
         static void Main(string[] args)
         {
-            int[] array1 = new int[] { 3, 1, 5, 7, 9 };
+            int[] array1 = new int[] { 3, 1, 5, 7, 9, 11, 123, 2, 6, 99, 101, 100 };
             Sort Sort = new Sort();
-            Sort.SelectionSort(array1);
+            Sort.InsertionSort(array1);
             Console.ReadKey();
         }
     }
@@ -29,7 +29,7 @@ namespace SortAlgoritmStudy
         {
             foreach (int i in a)
             {
-                Console.Write(i);
+                Console.Write(i+", ");
             }
         }
 
@@ -52,7 +52,19 @@ namespace SortAlgoritmStudy
 
         public void InsertionSort(int[] a)
         {
-
+            for (int i = 1; i < a.Length; i++)
+            {
+                int tmp = a[i], j = i-1;
+                while (j>=0 && tmp < a[j])
+                {
+                    a[j+1] = a[j];
+                    j--;
+                }
+                a[j+1] = tmp;
+            }
+            Print(a);
         }
+
+
     }
 }
